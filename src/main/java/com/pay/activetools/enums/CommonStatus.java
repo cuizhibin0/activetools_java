@@ -8,21 +8,39 @@ package com.pay.activetools.enums;
  * @date 2017年11月2日
  *
  */
-public enum CommonStatus {
+public enum CommonStatus  {
     // 有效
-    AVAILABLE(1),
+    AVAILABLE(1,"可用"),
 
     // 无效
-    UNAVAILABLE(0);
+    UNAVAILABLE(2,"禁用");
 
-    private Integer value;
+    private Integer code;
 
-    CommonStatus(Integer value) {
-        this.value = value;
+    private String msg;
+
+    public Integer getCode() {
+        return code;
     }
 
-    public Integer getValue() {
-        return value;
+    public String getMsg() {
+        return msg;
     }
+
+    CommonStatus(Integer code, String msg) {
+        this.code = code;
+        this.msg = msg;
+    }
+    public static String getMsg(String code) {
+        if (code != null) {
+            for (CommonStatus enums : CommonStatus.values()) {
+                if (enums.getCode().equals(code)) {
+                    return enums.getMsg();
+                }
+            }
+        }
+        return "";
+    }
+
 
 }

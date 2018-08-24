@@ -29,6 +29,8 @@ public enum CodeEnum {
         return msg;
     }
 
+
+
     public JSONObject getJsonMsg() {
         String resultMsg = "{\"code\":\"%s\",\"msg\":\"%s\"}";
         return JSONObject.parseObject(String.format(resultMsg, code, msg));
