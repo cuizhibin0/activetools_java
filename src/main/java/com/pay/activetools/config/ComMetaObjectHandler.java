@@ -19,15 +19,15 @@ import java.util.Date;
 public class ComMetaObjectHandler extends MetaObjectHandler {
     private static final Logger logger = LoggerFactory.getLogger(ComMetaObjectHandler.class);
 
-    private static final String COLUMN_UPDATE_DATE = "updateDate";
-    private static final String COLUMN_CREATE_DATE = "createDate";
+    private static final String COLUMN_UPDATE_DATE = "updateTime";
+    private static final String COLUMN_CREATE_DATE = "createTime";
     private static final String COLUMN_STATUS = "status";
 
     @Override
     public void insertFill(MetaObject metaObject) {
         Object status = getFieldValByName(COLUMN_STATUS, metaObject);
         if (status == null) {
-            setFieldValByName(COLUMN_STATUS, CommonStatus.AVAILABLE.getValue(), metaObject);
+            setFieldValByName(COLUMN_STATUS, CommonStatus.AVAILABLE.getCode(), metaObject);
         }
         Object createDate = getFieldValByName(COLUMN_CREATE_DATE, metaObject);
         if (createDate == null) {
