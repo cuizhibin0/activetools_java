@@ -1,6 +1,7 @@
 package com.pay.activetools.service;
 
 
+import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.IService;
 import com.pay.activetools.entity.ToolsPaymentMethod;
 
@@ -15,4 +16,9 @@ import com.pay.activetools.entity.ToolsPaymentMethod;
 
 public interface ToolsPaymentMethodService extends IService<ToolsPaymentMethod> {
 
+    void insertOrUpdatePayType(ToolsPaymentMethod toolsPaymentMethod) throws Exception;
+
+    Page<ToolsPaymentMethod> findPayType(Page<ToolsPaymentMethod> page, ToolsPaymentMethod toolsPaymentMethod) throws Exception;
+
+    ToolsPaymentMethod findPayTypeById(Long id) throws Exception;
 }
